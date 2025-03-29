@@ -87,7 +87,7 @@ router.get("/verify-email", async (request, response) => {
     }
 
     const decoded = jwt.verify(token, process.env.SECRET_KEY);
-
+    console.log(decoded); 
     const user = await User.findById(decoded.id);
     if (!user) {
       return response.status(400).json({
